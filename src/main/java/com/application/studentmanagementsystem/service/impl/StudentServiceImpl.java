@@ -16,7 +16,7 @@ public class StudentServiceImpl implements StudentService {
 
     private StudentRepository studentRepository;
 
-//    @Autowired
+    @Autowired
     public StudentServiceImpl(StudentRepository studentRepository) {
         this.studentRepository = studentRepository;
     }
