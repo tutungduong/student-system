@@ -14,17 +14,13 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "authors")
-public class Author {
+@Table(name = "categories")
+public class Category {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false, unique = true)
-    private String firstName;
-    @Column(nullable = false, unique = true)
-    private String lastName;
-    @Column(nullable = false)
-    private String description;
-    @ManyToMany(mappedBy = "authors" , cascade = CascadeType.ALL)
+    private String categoryName;
+    @ManyToMany(mappedBy = "categories",cascade = {CascadeType.ALL})
     private Set<Book> books = new HashSet<>();
 }

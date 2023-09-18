@@ -11,20 +11,18 @@ import java.util.Set;
 
 @Getter
 @Setter
-@NoArgsConstructor
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
-@Table(name = "authors")
-public class Author {
+@Table(name = "publishers")
+public class Publisher {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(nullable = false, unique = true)
-    private String firstName;
-    @Column(nullable = false, unique = true)
-    private String lastName;
-    @Column(nullable = false)
-    private String description;
-    @ManyToMany(mappedBy = "authors" , cascade = CascadeType.ALL)
+    private String publishName;
+
+    @ManyToMany(mappedBy = "publishers",cascade = {CascadeType.ALL})
     private Set<Book> books = new HashSet<>();
+
 }
